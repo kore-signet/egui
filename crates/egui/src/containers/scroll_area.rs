@@ -28,7 +28,7 @@ pub struct State {
     pub offset: Vec2,
 
     /// If set, quickly but smoothly scroll to this target offset.
-    offset_target: [Option<ScrollingToTarget>; 2],
+    pub offset_target: [Option<ScrollingToTarget>; 2],
 
     /// Were the scroll bars visible last frame?
     show_scroll: Vec2b,
@@ -37,22 +37,22 @@ pub struct State {
     content_is_too_large: Vec2b,
 
     /// Did the user interact (hover or drag) the scroll bars last frame?
-    scroll_bar_interaction: Vec2b,
+    pub scroll_bar_interaction: Vec2b,
 
     /// Momentum, used for kinetic scrolling
     #[cfg_attr(feature = "serde", serde(skip))]
     vel: Vec2,
 
     /// Mouse offset relative to the top of the handle when started moving the handle.
-    scroll_start_offset_from_top_left: [Option<f32>; 2],
+    pub scroll_start_offset_from_top_left: [Option<f32>; 2],
 
     /// Is the scroll sticky. This is true while scroll handle is in the end position
     /// and remains that way until the user moves the `scroll_handle`. Once unstuck (false)
     /// it remains false until the scroll touches the end position, which reenables stickiness.
-    scroll_stuck_to_end: Vec2b,
+    pub scroll_stuck_to_end: Vec2b,
 
     /// Area that can be dragged. This is the size of the content from the last frame.
-    interact_rect: Option<Rect>,
+    pub interact_rect: Option<Rect>,
 }
 
 impl Default for State {
